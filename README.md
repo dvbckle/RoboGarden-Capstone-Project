@@ -29,7 +29,7 @@ Possible future work may include (but not limited to):
   4.	Vary the combination of features used, / feature number and layers in the autoencoder.  Performance improved going from 10 to 4 features.  Conversely, build a larger model and use all features.  Or investigate extracting from the encoded layer.
 
 References & Inspiration:
-  1.	My classmates and TA’s at RoboGarden.
+  1.	My classmates, Instructor, TA’s & staff at RoboGarden.
   2.	Scikit-learn documentation.
   3.	Online articles:
     a.	https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/
