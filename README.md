@@ -2,7 +2,7 @@
 
 README
 
-This project is my RoboGarden ML Bootcamp completion project.   The objective is to identify credit card fraud transactions.  A description of the dataset is listed below. 
+This project is my RoboGarden ML Bootcamp completion project.   The objective is to identify credit card fraud transactions.  A description of the dataset is listed below.   This is an update of my work. 
 
 License:  Public Domain (CCO)
 
@@ -13,20 +13,21 @@ Reference:
 Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. Calibrating Probability with Undersampling for Unbalanced Classification. In Symposium on Computational Intelligence and Data Mining (CIDM), IEEE, 2015
 
 Work Summary:
-In this project I apply several classifiers such as Random Forest, SGD, SVC, Logistic Regression, MLP, and I apply a simple autoencoder method using keras Model to classify fraud vs. normal transaction in this highly unbalanced dataset.
-
+In this project I apply several classifiers such as Random Forest, SGD, SVC, Logistic Regression, MLP, and I apply a simple autoencoder method using Keras Model to classify fraud vs. normal transaction in this highly unbalanced dataset.
 Steps:
-  1.	Analyse and visualize the data and remove duplicates. 
-  2.	Run a first pass of 7 classifiers to see default performance.  Then optimize the classifiers with RandomSearchCV, CalibratedClassifierCV, and loops and re-run. 
-  3.	Run MLP and Random Forest on a reduced feature set selected from feature importance.  
+1.	Analyse and visualize the data and remove duplicates. 
+2.	Run a first pass of 7 classifiers to see default performance.  Then optimize the classifiers with an MLP model and use RandomSearchCV, CalibratedClassifierCV, and loops on remaining models. 
+3.	Run MLP and Random Forest on a reduced feature set selected from feature importance.  
 (The performance dropped marginally going from 29 to 10 features.)
-  4.	Make a more balanced dataset (under-sampling) by randomly selecting 1500 normal transaction and merge with the fraud transactions (shuffle, re-indexe and split maintaining a consistent ratio of frauds in the train & test sets.  I again ran MLP & RF on this set.  Test results were very good with the reduced test set, but the trained models performed poorly on the larger full data test set.  Finally, I built a 6-layer autoencoder and ran it with 10 and 4 features.  I kept the nodes simple with 10, 5, 3, 3, 5, 10 and 4, 3, 2, 2, 3, 4 construction.
+4.	Make a more balanced dataset (under-sampling) by randomly selecting 10% of normal transaction and merge with the fraud transactions (shuffle, re-index and split maintaining a consistent ratio of frauds in the train & test sets.  I again ran MLP & RF on this set.  Test results were very good with the reduced test set.  The trained models were tested on the full size test set and the probability scores and decision threshold were adjusted to account for the undersampling (as detailed in the paper cited with the dataset). 
+5.	Finally, I built a several autoencoder models and ran it with 29, 10, 4 and 3 features.
 
 Possible future work may include (but not limited to):
-  1.	Use SMOTE with the under-sampling / do more reading on applying the under-sampling technique.
-  2.	Spend more time optimizing the classifiers by choosing more parameters to vary.
-  3.	Investigate a hybrid classifier by voting with multiple classifiers to reduce false positives. Or feed a classifier with the    reconstructed output from the autoencoder.
-  4.	Vary the combination of features used, / feature number and layers in the autoencoder.  Performance improved going from 10 to 4 features.  Conversely, build a larger model and use all features.  Or investigate extracting from the encoded layer.
+1.	Spend more time optimizing the classifiers by choosing more parameters to vary.
+2.	Investigate a hybrid classifier by voting with multiple classifiers to reduce false positives. Or feed a classifier with the reconstructed output from the autoencoder.
+3.	Vary the combination of features used, / feature number and layers in the autoencoder.  
+4.	Investigate impact of using time in the models by adjusting to time of day vs. time from the first transaction.
+
 
 References & Inspiration:
   1.	My classmates, Instructor, TA’s & staff at RoboGarden.
